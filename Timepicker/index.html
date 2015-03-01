@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app="ui.bootstrap.demo">
+   <head>
+       <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+       <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.js"></script>
+       <script src="scripts/example.js"></script>
+       <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+   <body>
+     <div ng-controller="TimepickerDemoCtrl">
+
+        <timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+
+        <pre class="alert alert-info">Time is: {{mytime | date:'shortTime' }}</pre>
+
+        <div class="row"> 
+          <div class="col-xs-6">
+              Hours step is:
+            <select class="form-control" ng-model="hstep" ng-options="opt for opt in options.hstep"></select>
+          </div>
+          <div class="col-xs-6">
+              Minutes step is:
+            <select class="form-control" ng-model="mstep" ng-options="opt for opt in options.mstep"></select>
+          </div>
+        </div>
+
+        <hr>
+
+        <button class="btn btn-info" ng-click="toggleMode()">12H / 24H</button>
+        <button class="btn btn-default" ng-click="update()">Set to 14:00</button>
+        <button class="btn btn-danger" ng-click="clear()">Clear</button>
+
+      </div>
+   </body>
+</html>
